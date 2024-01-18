@@ -2,6 +2,8 @@ package magicsquare;
 
 import matrix.Matrix;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class MagicSquareTest {
@@ -17,5 +19,16 @@ public class MagicSquareTest {
 		} catch (Exception e) {
 			fail();
 		}
+	}
+
+	@ParameterizedTest
+	@ValueSource(ints = {1, 8, 20}) // six numbers
+	public void testInvalidSize(int size) {
+		assertThrows(InvalidSizeException.class, () -> new MagicSquare(size));
+	}
+
+	@Test
+	public void testCreateValidSize() {
+		assertDoesNotThrow(() -> new MagicSquare(3));
 	}
 }

@@ -19,12 +19,7 @@ public class App {
 			app.processArgs(args);
 			ms = new MagicSquare(msSize);
 		}
-		catch (InvalidArgumentException err) {
-			System.out.println("ERROR: " + err);
-			System.exit(1);
-			return;
-		}
-		catch (InvalidSizeException err) {
+		catch (MagicSquareException err) {
 			System.out.println("ERROR: " + err);
 			System.exit(1);
 			return;

@@ -1,6 +1,7 @@
 package magicsquare;
 
 import matrix.Matrix;
+import exceptions.*;
 
 public class MagicSquare extends Matrix {
 	private int size;

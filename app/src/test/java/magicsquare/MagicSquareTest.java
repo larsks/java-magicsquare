@@ -1,6 +1,8 @@
 package magicsquare;
 
 import matrix.Matrix;
+import exceptions.*;
+
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -13,7 +15,14 @@ public class MagicSquareTest {
 	public void testThreeByThree() {
 		int want_values[][] = {{8,1,6},{3,5,7},{4,9,2}};
 		MagicSquare have;
-		Matrix want = new Matrix(3, 3, want_values);
+		Matrix want;
+
+		try {
+			want = new Matrix(3, 3, want_values);
+		} catch (InvalidSizeException e) {
+			fail();
+			return;
+		}
 
 		try {
 			have = new MagicSquare(3);

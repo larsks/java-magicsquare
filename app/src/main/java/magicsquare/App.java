@@ -1,5 +1,7 @@
 package magicsquare;
 
+import exceptions.*;
+
 public class App {
 	private static int msSize;
 
@@ -19,7 +21,7 @@ public class App {
 			app.processArgs(args);
 			ms = new MagicSquare(msSize);
 		}
-		catch (MagicSquareException err) {
+		catch (BaseException err) {
 			System.out.println("ERROR: " + err);
 			System.exit(1);
 			return;

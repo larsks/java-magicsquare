@@ -3,6 +3,8 @@
  */
 package magicsquare;
 
+import exceptions.*;
+
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 

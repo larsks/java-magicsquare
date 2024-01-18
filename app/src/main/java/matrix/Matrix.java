@@ -1,16 +1,22 @@
 package matrix;
 
+import exceptions.*;
+
 public class Matrix {
 	private int rows, cols;
 	private int[][] values;
 
-	public Matrix(int rows, int cols) {
+	public Matrix(int rows, int cols) throws InvalidSizeException {
+		if (rows <= 0 || cols <= 0) {
+			throw new InvalidSizeException("rows and columns must be > 0");
+		}
+
 		this.rows = rows;
 		this.cols = cols;
 		values = new int[rows][cols];
 	}
 
-	public Matrix(int rows, int cols, int[][] init_values) {
+	public Matrix(int rows, int cols, int[][] init_values) throws InvalidSizeException {
 		this(rows,cols);
 
 		for (int i=0; i<rows; i++) {

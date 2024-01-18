@@ -1,5 +1,5 @@
-package magicsquare;
-public class InvalidArgumentException extends MagicSquareException { 
+package exceptions;
+public class InvalidArgumentException extends BaseException { 
     public InvalidArgumentException(String errorMessage) {
         super(errorMessage);
     }

@@ -6,5 +6,11 @@ package magicsquare;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
-class AppTest {
+public class AppTest {
+	@Test
+	public void testArgumentProcessing () {
+		App app = new App();
+		assertThrows(InvalidArgumentException.class, () -> app.processArgs(new String[0]));
+		assertThrows(InvalidArgumentException.class, () -> app.processArgs(new String[2]));
+	}
 }

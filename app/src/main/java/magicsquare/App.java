@@ -3,7 +3,7 @@ package magicsquare;
 public class App {
 	private static int msSize;
 
-	private static void processArgs(String[] args) throws InvalidArgumentException {
+	public void processArgs(String[] args) throws InvalidArgumentException {
 		if (args.length != 1) {
 			throw new InvalidArgumentException("You must specify the size of the magic square.");
 		}
@@ -13,9 +13,10 @@ public class App {
 
 	public static void main(String[] args) {
 		MagicSquare ms;
+		App app = new App();
 
 		try {
-			processArgs(args);
+			app.processArgs(args);
 			ms = new MagicSquare(msSize);
 		}
 		catch (InvalidArgumentException err) {

@@ -30,6 +30,6 @@ public class App {
 		}
 
 		System.out.println("Created magic square of size " + ms.getSize());
-		ms.printSquare();
+		ms.print();
 	}
 }

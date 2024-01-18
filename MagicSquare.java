@@ -1,10 +1,12 @@
 package magicsquare;
 
-public class MagicSquare {
+import matrix.Matrix;
+
+public class MagicSquare extends Matrix {
 	private int size;
-	private int[][] numbers;
 
 	public MagicSquare(int desiredSize) throws InvalidSizeException {
+		super(desiredSize, desiredSize);
 		if (desiredSize < 3 || desiredSize > 17) {
 			throw new InvalidSizeException("size must be 3 <= size <= 17");
 		}
@@ -18,13 +20,11 @@ public class MagicSquare {
 	}
 
 	private void buildMagicSquare() {
-		numbers = new int[size][size];
-
 		int row = 0;
 		int col = size/2;
 		int val = 1;
 		for (int i=0; i<size*size; i++) {
-			numbers[row][col] = val;
+			this.setValueAt(row, col, val);
 			val++;
 
 			if ((val-1)%size == 0) {
@@ -42,18 +42,5 @@ public class MagicSquare {
 
 	public int getSize() {
 		return size;
-	}
-
-	public int[][] getNumbers() {
-		return numbers;
-	}
-
-	public void printSquare() {
-		for (int i=0; i<size; i++) {
-			for (int j=0; j<size; j++) {
-				System.out.printf("%4d ", numbers[i][j]);
-			}
-			System.out.println("");
-		}
 	}
 }
